@@ -1,0 +1,67 @@
+/*
+source: https://cses.fi/problemset/list/
+Goal: divide the numbers 1,2,…,n into two sets of equal sum
+Approach: 1. find the sum of no.s from 1-n = n*(n+10/2
+2. the half of that is the sum of the two sets
+3. keep subtracting this half from n down to 1, and update it : half = hlaf - i
+if half is higher than i push it to the 1st set
+else push it to the 2nd set
+*/
+
+#include <bits/stdc++.h>
+typedef long long LL;
+using namespace std;
+int main()
+{
+    LL n, sum, half;
+
+    vector<int>v1,v2;
+
+    cin >> n;
+
+    sum = n*(n+1)/2;
+    half = n*(n+1)/4;
+
+
+
+    if(sum%2!=0)
+    {
+        cout << "NO";
+        return 0;
+    }
+
+
+    cout << "YES" << endl;
+
+    for (int i=n; i>=1; i--)
+    {
+        if(half>=i){
+            v1.push_back(i);
+
+            half -= i;
+        }
+
+        else{
+           v2.push_back(i);
+            continue;
+        }
+
+    }
+
+    cout << v1.size() << endl;
+
+    for(int i=0; i<v1.size(); i++)
+    {
+        cout << v1[i] << " ";
+    }
+
+    cout<<endl;
+    cout<<v2.size()<<endl;
+
+for(int i=0; i<v2.size(); i++)
+    {
+        cout << v2[i] << " ";
+    }
+
+
+    }
