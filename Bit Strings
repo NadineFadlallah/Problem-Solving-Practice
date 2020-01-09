@@ -1,0 +1,23 @@
+/*
+Source: https://cses.fi/problemset/task/1617
+
+*/
+
+#include <bits/stdc++.h>
+const unsigned int M = 1000000007; //https://www.hackerearth.com/practice/notes/abhinav92003/why-output-the-answer-modulo-109-7/
+using namespace std;
+int main()
+{
+ 
+ 
+int n, res=1;
+ 
+cin>>n;
+ 
+for(int i=0; i<n; i++)
+{
+    res=(res*2)%M;
+}
+cout<<res;
+ 
+return
